@@ -10,7 +10,7 @@ import {
 import {connect} from "react-redux"
 import {Button, Switch, InputItem, List, Toast} from 'antd-mobile';
 import * as LoginType from '../../constant/loginType';
-import {NetUtils, Urls, RespUtils, ReduxProps} from "../../utils";
+import {NetUtils, Urls, RespUtils, ReduxProps, StringUtils} from "../../utils";
 
 const TOAST_DURATION = 1.5
 
@@ -20,8 +20,8 @@ class LoginScene extends Component {
         super(props)
         this.state = {
             isLogin: true,
-            mobile: "17750224350",
-            password: "qwe"
+            mobile: "",
+            password: ""
 
         }
     }
@@ -121,6 +121,16 @@ class LoginScene extends Component {
     }
 
     login() {
+        if(StringUtils.isNullOrEmpty(this.state.mobile)) {
+            Toast.fail("手机号码不允许为空")
+            return
+        }
+
+        if(StringUtils.isNullOrEmpty(this.state.password)) {
+            Toast.fail("密码不允许为空")
+            return
+        }
+
         let loginInfo = {
             mobile: this.state.mobile,
             password: this.state.password
