@@ -32,12 +32,12 @@ class OrderScene extends React.Component {
     }
 
     componentWillMount() {
-        this.setState({
-            orderStatus: this.props.orderStatus
-        })
     }
 
     componentDidMount() {
+        this.setState({
+            orderStatus: this.props.orderStatus
+        })
         this.queryOrder(this.getInitOrderStatus())
     }
 

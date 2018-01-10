@@ -6,6 +6,7 @@ const PROJ = "/clothshopserver"
 //本地调试
 // const HOST = "http://192.168.0.103:8070";
 // const HOST = "http://172.20.10.3:8070";
+// const HOST = "http://192.168.1.106:8070";
 // const PROJ = ""
 const DOMAIN = HOST + PROJ
 const COLOR_URL = DOMAIN + "/api/goodsInfo/color"

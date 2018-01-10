@@ -26,10 +26,11 @@ class OrderGoodsList extends Component {
             let goods = order.goodsVO[key];
             let view = (
                 <TouchableOpacity
+                    key={key}
                     disabled={!itemPressFun}
                     onPress={ itemPressFun && (() => itemPressFun(goods.goodsId))}
                 >
-                    <View key={key}>
+                    <View >
                         <View style={[Align.lLayout, Align.vCenter]}>
                             <Image
                                 style={[imageStyle, {marginLeft: 10}]}
