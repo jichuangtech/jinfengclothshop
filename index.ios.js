@@ -9,4 +9,4 @@ import {
 } from 'react-native';
 import Shop from './src/Shop';
 
-AppRegistry.registerComponent('shop', () => Shop);
+AppRegistry.registerComponent('jfclothshop', () => Shop);
