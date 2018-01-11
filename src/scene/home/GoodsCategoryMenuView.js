@@ -8,7 +8,7 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, } from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 
 import { screen, system, tool } from '../../common'
 import Color from '../../widget/color'

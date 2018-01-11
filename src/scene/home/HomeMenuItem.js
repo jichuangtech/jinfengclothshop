@@ -10,7 +10,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-// import { Heading2 } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 import * as Urls from "../../utils/Urls";
 

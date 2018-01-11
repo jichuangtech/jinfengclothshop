@@ -27,7 +27,7 @@ import {OrderStatus} from "../../constant";
 
 const TOAST_DURATION = 1.2
 
-class HomeScene extends React.Component {
+class MineScene extends React.Component {
 
     constructor(props) {
         super(props);
@@ -273,4 +273,4 @@ const MineStyle = StyleSheet.create({
 
 });
 
-export default connect(ReduxProps.mapStateToProps)(HomeScene);
+export default connect(ReduxProps.mapStateToProps)(MineScene);

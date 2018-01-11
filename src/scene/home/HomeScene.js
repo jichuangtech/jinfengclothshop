@@ -6,19 +6,15 @@ import {
     StyleSheet,
     View,
     FlatList,
-    Slider,
     Text,
     TouchableOpacity,
     Image
 } from 'react-native';
 import Swiper from 'react-native-swiper'
-import GoodsCategoryMenuView from './GoodsCategoryMenuView'
 import {GoodsInfoView, SpacingView} from "../../widget"
 import NetUtils from "../../utils/NetUtils"
 import * as Urls from "../../utils/Urls";
 import * as RespUtils from "../../utils/RespUtils";
-import * as StringUtils from "../../utils/StringUtils";
-import {screen} from "../../common"
 
 class HomeScene extends Component {
     static staticMemVal = "静态成员  变量定义";

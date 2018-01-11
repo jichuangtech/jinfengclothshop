@@ -4,11 +4,9 @@
 
 import React, {Component} from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
     View,
-    CheckBox,
     FlatList,
     TouchableOpacity,
     TouchableHighlight
@@ -25,7 +23,16 @@ class ShopCarScene extends React.Component {
         this.state = {
             isAllSelect: false,
             isRefreshing: false,
-            car:[1,2,1,2,1,2,1,2,1,2],
+            car:[
+                {key: "" + 0},
+                {key: "" + 1},
+                {key: "" + 2},
+                {key: "" + 3},
+                {key: "" + 4},
+                {key: "" + 5},
+                {key: "" + 6},
+                {key: "" + 7},
+            ],
             isEditMode: false
         }
     }

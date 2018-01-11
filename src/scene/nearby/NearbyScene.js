@@ -10,7 +10,7 @@ import {
     View
 } from 'react-native';
 
-class HomeScene extends React.Component {
+class NearbyScene extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,4 +23,4 @@ class HomeScene extends React.Component {
 
 }
 
-export default HomeScene;
+export default NearbyScene;

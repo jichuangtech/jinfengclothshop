@@ -83,8 +83,8 @@ class OrderScene extends React.Component {
                     data={that.state.orders}
                     renderItem={({item, index}) =>
                         <OrderInfoView
-                            showDetail={()=>this.showOrderDetail(item)}
                             key={index}
+                            showDetail={()=>this.showOrderDetail(item)}
                             order={item}
                         />
                     }
