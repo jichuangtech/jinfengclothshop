@@ -158,6 +158,9 @@ const Navigator = StackNavigator(
 
          GoodsDetail: {
             screen: GoodsDetailScene,
+             navigationOptions: {
+                 title:"商品详情"
+             }
          },
 
          Login: {

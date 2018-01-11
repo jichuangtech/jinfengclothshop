@@ -12,10 +12,10 @@ import {
     Button,
     NativeModules,
     DeviceEventEmitter,
-    FlatList
+    FlatList,
 } from 'react-native';
 import NetUtils from "../../utils/NetUtils"
-import {GoodsInfoView} from "../../widget"
+import {GoodsInfoView, SpacingView} from "../../widget"
 import * as Urls from "../../utils/Urls"
 import * as RespUtils from "../../utils/RespUtils"
 
@@ -46,11 +46,7 @@ class GoodsListScene extends React.Component {
             display: listVisible
         };
 
-        return (<View>
-            <Text>
-                我是商品列表界面 菜单id: {params.cateId}
-            </Text>
-
+        return (<View style={[{backgroundColor:"#fff"}]}>
             <FlatList
                 numColumns={1}
                 horizontal={false}
@@ -58,8 +54,10 @@ class GoodsListScene extends React.Component {
                 onRefresh={() => this.refresh(params.cateId)}
                 refreshing={this.state.isRefreshing}
                 data={this.state.goods}
+                ItemSeparatorComponent={SpacingView}
                 renderItem={({item, index}) =>
                     <GoodsInfoView
+                        orientation="row"
                         onPressed={ (goodsId) => this.onGoodsPressed(goodsId)}
                         goods={item}
                     />

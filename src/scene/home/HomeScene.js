@@ -108,8 +108,8 @@ class HomeScene extends Component {
                     renderItem={({item, index}) =>
                         (<TouchableOpacity
                             key={index}
-                            onPress={()=>this.onMenuSelected(item.id)}
-                            style={[{flex:1}]}
+                            onPress={() => this.onMenuSelected(item.id)}
+                            style={[{flex: 1}]}
                         >
                             <View key={index}
                                   style={{flexDirection: "column", flex: 1, alignItems: "center"}}>
@@ -204,11 +204,11 @@ class HomeScene extends Component {
             console.info("home query category error, code: " + json.statusCode);
             return;
         }
-        var data = [];
+        let data = [];
         let categories = json.data;
-        for (var index = 0; index < categories.length; index++) {
+        for (let index = 0; index < categories.length; index++) {
 
-            var row = {
+            let row = {
                 key: '' + index,
                 title: categories[index].name,
                 icon: categories[index].image,
@@ -299,5 +299,15 @@ const HomeStyle = StyleSheet.create({
 
 
 });
+
+//ES6语法进行 属性的类型声明 和 默认值
+HomeScene.propTypes = {
+    orientation: React.PropTypes.string
+};
+
+HomeScene.defaultProps = {
+    orientation: "row"   // row column
+};
+
 
 export default HomeScene;
