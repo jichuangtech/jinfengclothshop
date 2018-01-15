@@ -9,11 +9,14 @@ import {
     View,
     FlatList,
     TouchableOpacity,
-    TouchableHighlight
+    TouchableHighlight,
+    AsyncStorage
 } from 'react-native';
 import { Checkbox} from 'antd-mobile'
 import {Align} from '../../css';
-import {CarInfoView} from "../../widget";
+import {CarInfoView,Divider} from "../../widget";
+import {Urls, NetUtils, ReduxProps, RespUtils} from "../../utils"
+import {connect} from 'react-redux';
 
 
 class ShopCarScene extends React.Component {
@@ -23,16 +26,7 @@ class ShopCarScene extends React.Component {
         this.state = {
             isAllSelect: false,
             isRefreshing: false,
-            car:[
-                {key: "" + 0},
-                {key: "" + 1},
-                {key: "" + 2},
-                {key: "" + 3},
-                {key: "" + 4},
-                {key: "" + 5},
-                {key: "" + 6},
-                {key: "" + 7},
-            ],
+            carts:[],
             isEditMode: false
         }
     }
@@ -41,13 +35,14 @@ class ShopCarScene extends React.Component {
         let sum = 1
         let isAllSelect = this.state.isAllSelect
         let editTitle = this.state.isEditMode ? "完成" : "编辑"
-        return (<View style={CarStyle.container}>
-            <Text>我是购物车</Text>
-            <View style={{flexDirection: "row", alignItems: "center"}}>
+        return (
+            <View style={CarStyle.container}>
+            <View style={{flexDirection: "row", alignItems: "center", marginTop:10}}>
                 <View style={{flex: 1}}>
-                    <Checkbox style={{backgroundColor: "#fbceff",}}
+                    <Checkbox
                               checked={isAllSelect}
-                              onChange={(event) => this.onAllSelectChange(event)}>金凤针织
+                              onChange={(event) => this.onAllSelectChange(event)}>
+                        金凤针织
                     </Checkbox>
                 </View>
 
@@ -66,10 +61,11 @@ class ShopCarScene extends React.Component {
                     horizontal={false}
                     onRefresh={() => this.refresh()}
                     refreshing={this.state.isRefreshing}
-                    data={this.state.car}
+                    data={this.state.carts}
                     renderItem={({item,index}) =>
                         <CarInfoView
                             key={index}
+                            cart={item.obj}
                             isEditMode={this.state.isEditMode}
                             isAllSelect={this.state.isAllSelect}
                         />
@@ -77,7 +73,10 @@ class ShopCarScene extends React.Component {
                 />
             </View>
 
-            <View style={{backgroundColor: "#0f0", flex: 1, flexDirection: "row", alignItems: "center"}}>
+            <Divider
+                style={[{width:"100%"}]}
+            />
+            <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
                 <View style={[{flex: 1}, Align.lLayout]}>
                     <Checkbox style={{marginLeft:10}}
                             checked={isAllSelect}
@@ -115,7 +114,7 @@ class ShopCarScene extends React.Component {
     }
 
     refresh() {
-        alert("进行刷新")
+        this.queryCart()
     }
 
     onEditBtnClick() {
@@ -124,16 +123,68 @@ class ShopCarScene extends React.Component {
         })
     }
 
+    componentDidMount() {
+        if(this.isLogined()) {
+            this.queryCart()
+        } else {
+            console.log("还没登录")
+        }
+    }
+
+    queryCart() {
+        let self = this;
+        let url = Urls.CART;
+
+        AsyncStorage.getItem("access_token", function (error, value) {
+            if(error === null) {
+                NetUtils.getJson(url, value, null,
+                    (responseJson)=> {
+                        self.updateCart(responseJson)
+                    },
+                    (error)=>{alert("请求失败 error: " + error);},
+                    (catchError)=>{alert("捕获异常: " + catchError);})
+            }
+        });
+
+    }
+
+    updateCart(cartJson) {
+        if(!RespUtils.isSuccess(cartJson.statusCode)) {
+            console.log(" not success ");
+            return
+        }
+        let carts = [];
+        let a = 1;
+        for(let index in cartJson.data) {
+            let cart = cartJson.data[index]
+            let cartObj = {
+                key: index,
+                obj: cart
+            };
+
+            carts.push(cartObj);
+        }
+
+        this.setState({
+            carts: carts
+        })
+
+    }
+
+    isLogined() {
+        return this.props.loginProps.status === "in"
+    }
+
 }
 
 const CarStyle = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
-        backgroundColor: "#fbceff"
+        backgroundColor:"white"
     },
 
 
 });
 
-export default ShopCarScene;
+export default connect(ReduxProps.mapStateToProps)(ShopCarScene);

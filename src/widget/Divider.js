@@ -18,7 +18,7 @@ class Divider extends Component {
     }
 
     render() {
-        return (<View style={[{backgroundColor:Color.background, width:"100%", height:1, marginTop:6, marginBottom:6}]}/>)
+        return (<View style={[{backgroundColor:Color.background, width:"100%", height:1, marginTop:6}]}/>)
     }
 }
 

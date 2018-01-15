@@ -14,6 +14,7 @@ import {
 import {Checkbox} from 'antd-mobile'
 import {Align} from "../css";
 import {DisplayUtils ,Urls, SizeStyle} from "../utils";
+import {Divider} from "../widget"
 
 
 class CarInfoView extends Component {
@@ -73,39 +74,50 @@ class CarInfoView extends Component {
     render() {
         let delViewDisplay = DisplayUtils.getDisplay(this.props.isEditMode);
         let checked = this.state.checkFrom === 2 ? this.state.isChecked : this.props.isAllSelect
+        let cart = this.props.cart
         return (
             <View style={[{flex:1}, Align.lLayout]}>
-                <Checkbox style={[{marginLeft:10}, SizeStyle.percent(0.069, 0.04)]}
+                <Checkbox style={[{marginLeft:10}]}
                           checked={checked}
                           onChange={ (checked)=> this.onCheckboxChange(checked)}
                 />
-                <Image style={[CarInfoViewStyle.image, {margin: 10, backgroundColor:"#00f"}]}
-                       source={{uri: Urls.PIC + "cloth_goods_2_title.jpg3"}}
+                <Image style={[CarInfoViewStyle.image, {margin: 10}]}
+                       source={{uri: Urls.PIC + cart.originalImg}}
                 />
                 <View style={[{width: "55%"}, Align.tLayout]}>
-                    {/* 上面*/}
-                    <View style={[{flex:2.5, backgroundColor:"#00f", marginTop:10}]}>
+                    {/* 名字 */}
+                    <View style={[{flex:5, marginTop:10}]}>
                         <Text>
-                            美国网
+                            {cart.goodsName}
                         </Text>
                     </View>
 
-                    {/* 下面*/}
-                    <View style={[{flex:1.5, backgroundColor:"#0f0", marginBottom:10}]}>
+                    {/* 颜色 */}
+                    <View style={[{flex:2.5, marginBottom:10}]}>
                         <Text>
-                            西瓜红
+                            {cart.color}
                         </Text>
                     </View>
+
+                    {/* 规格 */}
+                    <View style={[{flex:2.5, marginBottom:10}]}>
+                        <Text>
+                            ¥{cart.shopPrice}/{cart.specName}
+                        </Text>
+                    </View>
+                    <Divider
+                        style={{width:"100%"}}
+                    />
 
                 </View>
                 {/* 删除按钮 */}
-                    <TouchableOpacity
-                        style={[{flex:1, backgroundColor:"#f00", marginTop:10,
-                            marginBottom:10, display:delViewDisplay}, Align.center]}
-                        onPress={ ()=> this.onDelBtnClick()}
-                    >
-                        <Text style={{color:"#fff"}}>删除</Text>
-                    </TouchableOpacity>
+                <TouchableOpacity
+                    style={[{flex:1, backgroundColor:"#f00", marginTop:10,
+                        marginBottom:10, display:delViewDisplay}, Align.center]}
+                    onPress={ ()=> this.onDelBtnClick()}
+                >
+                    <Text style={{color:"#fff"}}>删除</Text>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -136,7 +148,8 @@ const CarInfoViewStyle = StyleSheet.create({
     image: {
         width:80,
         height:80,
-        backgroundColor: "red",
+        borderWidth:1,
+        borderColor:"gray",
     }
 
 });
