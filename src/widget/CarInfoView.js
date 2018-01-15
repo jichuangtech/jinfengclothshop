@@ -11,11 +11,6 @@ import {
     CheckBox
 } from 'react-native';
 
-import {
-    tool,
-    screen
-}
-from "../common";
 import {Checkbox} from 'antd-mobile'
 import {Align} from "../css";
 import {DisplayUtils ,Urls, SizeStyle} from "../utils";
@@ -89,7 +84,7 @@ class CarInfoView extends Component {
                 />
                 <View style={[{width: "55%"}, Align.tLayout]}>
                     {/* 上面*/}
-                    <View style={[{flex:2.5, backgroundColor:"#00f", marginTop:10}, Align]}>
+                    <View style={[{flex:2.5, backgroundColor:"#00f", marginTop:10}]}>
                         <Text>
                             美国网
                         </Text>
@@ -103,7 +98,7 @@ class CarInfoView extends Component {
                     </View>
 
                 </View>
-                {/* 删除*/}
+                {/* 删除按钮 */}
                     <TouchableOpacity
                         style={[{flex:1, backgroundColor:"#f00", marginTop:10,
                             marginBottom:10, display:delViewDisplay}, Align.center]}

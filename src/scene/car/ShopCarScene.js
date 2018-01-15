@@ -80,7 +80,7 @@ class ShopCarScene extends React.Component {
             <View style={{backgroundColor: "#0f0", flex: 1, flexDirection: "row", alignItems: "center"}}>
                 <View style={[{flex: 1}, Align.lLayout]}>
                     <Checkbox style={{marginLeft:10}}
-                              checked={isAllSelect}
+                            checked={isAllSelect}
                               onChange={(event) => this.onAllSelectChange(event)}>全选
                     </Checkbox>
                 </View>
