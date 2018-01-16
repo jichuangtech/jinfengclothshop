@@ -24,6 +24,7 @@ import ShopCarScene from './scene/car/ShopCarScene'
 import NearbyScene from './scene/nearby/NearbyScene'
 import MineScene from './scene/mine/MineScene'
 import LoginScene from './scene/login/LoginScene'
+import SettingsScene from './scene/setting/SettingsScene'
 
 
 //import WebScene from './widget/WebScene'
@@ -194,6 +195,12 @@ const Navigator = StackNavigator(
              screen: OrderDetailView,
              navigationOptions: {
                  title:"订单详情"
+             }
+         },
+         Settings: {
+             screen: SettingsScene,
+             navigationOptions: {
+                 title:"设置"
              }
          }
 

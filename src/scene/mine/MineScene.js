@@ -143,10 +143,28 @@ class MineScene extends React.Component {
                     </TouchableHighlight>
 
                     <SpacingView/>
+
+                    <TouchableHighlight
+                        onPress={()=> this.showSettingView()}
+                        style={[MineStyle.itemStyle]}>
+                        <View style={[{flexDirection:"row", flex:1}, Align.vCenter]}>
+                            <View style={[Align.lLayout, {flex: 1, height: "100%", marginLeft:10},
+                                Align.vCenter]}>
+                                <Text style={[MineStyle.itemTextStyle]}>设   置</Text>
+                            </View>
+                        </View>
+                    </TouchableHighlight>
+
+                    <SpacingView/>
                 </View>
 
             </View>
         );
+    }
+
+    showSettingView() {
+        const { navigate } = this.props.navigation;
+        navigate('Settings');
     }
 
     makeCall() {

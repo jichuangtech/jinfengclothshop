@@ -6,7 +6,8 @@ const Goods_Detail = "GoodsDetail"
 const LOGIN = "Login"
 const ORDER = "Order"
 const ORDER_DETAIL = "OrderDetail"
+const SETTINGS = "Settings"
 
 export default {
-    HOME, CART, MINE, GOODS_LIST,  Goods_Detail, LOGIN, ORDER, ORDER_DETAIL
+    HOME, CART, MINE, GOODS_LIST,  Goods_Detail, LOGIN, ORDER, ORDER_DETAIL, SETTINGS
 }

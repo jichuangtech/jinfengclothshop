@@ -20,8 +20,8 @@ class LoginScene extends Component {
         super(props)
         this.state = {
             isLogin: true,
-            mobile: "",
-            password: ""
+            mobile: "17750224350",
+            password: "qwe"
 
         }
     }

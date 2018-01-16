@@ -161,6 +161,8 @@ class HomeScene extends Component {
         this.queryRecommendGoods()
         this.queryCategory()
         this.queryHotGoods()
+        // const { navigate } = this.props.navigation;
+        // navigate('Settings');
     }
 
     queryRecommendGoods() {
