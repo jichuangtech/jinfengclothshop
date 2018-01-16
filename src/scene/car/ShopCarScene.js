@@ -10,13 +10,15 @@ import {
     FlatList,
     TouchableOpacity,
     TouchableHighlight,
-    AsyncStorage
+    AsyncStorage,
+    DeviceEventEmitter
 } from 'react-native';
 import { Checkbox} from 'antd-mobile'
 import {Align} from '../../css';
 import {CarInfoView,Divider} from "../../widget";
 import {Urls, NetUtils, ReduxProps, RespUtils} from "../../utils"
 import {connect} from 'react-redux';
+import {Router} from "../../constant"
 
 
 class ShopCarScene extends React.Component {
@@ -124,11 +126,29 @@ class ShopCarScene extends React.Component {
     }
 
     componentDidMount() {
-        if(this.isLogined()) {
+        if(this.isLogin()) {
             this.queryCart()
         } else {
             console.log("还没登录")
         }
+
+        DeviceEventEmitter.addListener('onTabShow',
+            (value) => {
+                if(value !== Router.CART) {
+                    return
+                }
+                if(this.isLogin()) {
+                    this.queryCart()
+                } else {
+                    const { navigate } = this.props.navigation;
+                    navigate('Login');
+                }
+                // alert("ShopCart show: " + value)
+            })
+        DeviceEventEmitter.addListener('onTabHidden',
+            (value) => {
+            // alert("ShopCart hidden: " + value)
+        })
     }
 
     queryCart() {
@@ -171,8 +191,16 @@ class ShopCarScene extends React.Component {
 
     }
 
-    isLogined() {
+    isLogin() {
         return this.props.loginProps.status === "in"
+    }
+
+    componentWillMount() {
+        if(this.props.loginProps.status !== "in") {
+            const { navigate } = this.props.navigation;
+            // alert("navigation: " + JSON.stringify(this.props.navigation))
+            // navigate('Login');
+        }
     }
 
 }

@@ -2,6 +2,21 @@ function isNullOrEmpty(value) {
     return value === undefined || value === null || value === "";
 }
 
+function isEmpty(obj){
+    if(typeof (obj) != 'number' && (!obj || obj == null || obj == ' ' || obj == undefined || typeof (obj) == 'undefined')){
+        return true;
+    }
+    return false;
+}
+
+//判断对象不为空
+function isNotEmpty(obj){
+    if(!this.isEmpty(obj)){
+        return true;
+    }
+    return false;
+}
+
 function format() {
     let args = arguments;
     return args[0].replace(/\{(\d+)\}/g,function(s,i){
@@ -19,5 +34,5 @@ String.prototype.format = function(){
 }
 
 export {
-    isNullOrEmpty, format
+    isNullOrEmpty, format, isEmpty, isNotEmpty
 }

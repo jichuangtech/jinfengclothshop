@@ -8,7 +8,7 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { StatusBar, Text, Button, View} from 'react-native';
+import { StatusBar, Text, Button, View, DeviceEventEmitter} from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import color from './widget/color'
@@ -56,15 +56,30 @@ class RootScene extends Component {
     render() {
         return (
             <Navigator
+                onNavigationStateChange={(prevState, currentState) => {
+                        const currentScreen = getCurrentRouteName(currentState);
+                        const prevScreen = getCurrentRouteName(prevState);
+                        // alert(" prevState: " + JSON.stringify(prevState))
+                        // alert(" currentState: " + JSON.stringify(currentState))
+                        // alert(" currentScreen: " + currentScreen)
+                        // alert(" prevScreen: " + prevScreen)
+                    DeviceEventEmitter.emit("onTabShow", currentScreen)
+                    DeviceEventEmitter.emit("onTabHidden", prevScreen)
+                }}
+
             />
         );
+    }
+
+    static notifyNavigationChange(prevScreen, currentScreen) {
+
     }
 }
 
 const Tab = TabNavigator(
     {
         Home: {
-            screen: HomeScene,
+            screen: HomeScene ,
             navigationOptions: ({ navigation }) => ({
                 title:"首页",
                 tabBarLabel: '首页',
@@ -95,7 +110,7 @@ const Tab = TabNavigator(
         //     }),
         // },
 
-        Car: {
+        Cart: {
             screen: ShopCarScene,
             navigationOptions: ({ navigation }) => ({
                 title:"购物车",
