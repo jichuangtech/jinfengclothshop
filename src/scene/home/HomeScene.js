@@ -161,6 +161,8 @@ class HomeScene extends Component {
         this.queryRecommendGoods()
         this.queryCategory()
         this.queryHotGoods()
+
+        //下面可以添加调试界面，便于代码变化后进行快速调试
         // const { navigate } = this.props.navigation;
         // navigate('Settings');
     }
