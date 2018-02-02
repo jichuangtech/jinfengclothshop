@@ -52,7 +52,7 @@ class CarInfoView extends Component {
     }
 
     /**
-     * 此回调函数中可以进行 render()函数的调用
+     * 此回调函数中可以进行 render()函数的调用 （不可以进行render()）
      * @param nextProps
      * @param nextState
      */
@@ -63,7 +63,7 @@ class CarInfoView extends Component {
 
 
     /**
-     * 此回调函数中可以进行 render()函数的调用
+     * 此回调函数中可以进行 render()函数的调用（不可以进行render()）
      * @param prevProps
      * @param prevState
      */
@@ -74,7 +74,7 @@ class CarInfoView extends Component {
     render() {
         let delViewDisplay = DisplayUtils.getDisplay(this.props.isEditMode);
         let checked = this.state.checkFrom === 2 ? this.state.isChecked : this.props.isAllSelect
-        let cart = this.props.cart
+        let cart = this.props.cart;
         return (
             <View style={[{flex:1}, Align.lLayout]}>
                 <Checkbox style={[{marginLeft:10}]}
