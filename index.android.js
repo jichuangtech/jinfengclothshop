@@ -10,4 +10,4 @@ import {
 
 import Shop from './src/Shop';
 
-AppRegistry.registerComponent('shop', () => Shop);
+AppRegistry.registerComponent('jfclothshop', () => Shop);
