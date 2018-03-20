@@ -18,6 +18,7 @@ import {Align} from '../../css';
 import {CarInfoView,Divider} from "../../widget";
 import {Urls, NetUtils, ReduxProps, RespUtils} from "../../utils"
 import {connect} from 'react-redux';
+import {NavigationActions} from 'react-navigation';
 import {Router} from "../../constant"
 
 
@@ -141,7 +142,8 @@ class ShopCarScene extends React.Component {
                     this.queryCart()
                 } else {
                     const { navigate } = this.props.navigation;
-                    navigate('Login');
+                    // navigate('Login');
+                    this.resetRouter();
                 }
                 // alert("ShopCart show: " + value)
             })
@@ -149,6 +151,17 @@ class ShopCarScene extends React.Component {
             (value) => {
             // alert("ShopCart hidden: " + value)
         })
+    }
+
+    resetRouter() {
+        const resetAction = NavigationActions.reset({
+            index: 1,
+            actions: [
+                NavigationActions.navigate({ routeName: 'Tab'}),
+                NavigationActions.navigate({ routeName: 'Login'})
+            ]
+        })
+        this.props.navigation.dispatch(resetAction)
     }
 
     queryCart() {
