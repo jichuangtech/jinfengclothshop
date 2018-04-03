@@ -1,5 +1,16 @@
 ios/
 android/
+android/*.iml
+android/.idea
+android/.*.swp
+android/.gradle
+android/local.properties
+android/.idea/workspace.xml
+android/.idea/libraries
+android/.DS_Store
+android/build
+android/captures
+
 # OSX
 #
 .DS_Store
