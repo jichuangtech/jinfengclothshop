@@ -17,3 +17,8 @@
     Px.layout(number), 用来设置 width,height,paddding,margin 等尺寸，number代表美工设计的像素尺寸
     Px.text(number) 用来设置 字体大小 ,number代表美工设计的像素尺寸
 
+6.软件版本升级-增量热更新，热更新
+（1）制作增量包的命令
+   react-native bundle --platform android --dev false --reset-cache --entry-file index.android.js --bundle-output ~/Downloads/index.android.bundle   --assets-dest ~/Downloads/
+
+（2）增量热更新, 图片资源 和 脚本的热更新
