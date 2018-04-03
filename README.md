@@ -11,3 +11,9 @@
 
 4.为什么要使用babel
 （1）因为目前部分浏览器不支持ES6语法，但大部分都是支持ES5，因此可以使用 babel将ES6转换为ES5供浏览器解析
+
+5.关于UI界面适配的问题，目前先采用（1）方案
+（1）使用Px.js工具类，
+    Px.layout(number), 用来设置 width,height,paddding,margin 等尺寸，number代表美工设计的像素尺寸
+    Px.text(number) 用来设置 字体大小 ,number代表美工设计的像素尺寸
+

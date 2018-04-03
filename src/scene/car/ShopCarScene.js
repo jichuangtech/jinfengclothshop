@@ -11,7 +11,8 @@ import {
     TouchableOpacity,
     TouchableHighlight,
     AsyncStorage,
-    DeviceEventEmitter
+    DeviceEventEmitter,
+    PixelRatio
 } from 'react-native';
 import {Checkbox} from 'antd-mobile'
 import {Align} from '../../css';
@@ -141,12 +142,10 @@ class ShopCarScene extends React.Component {
                 if (this.isLogin()) {
                     this.queryCart()
                 } else {
-                    alert(" this.props.router1: " + JSON.stringify(this.props.navigation));
                     const {navigate} = this.props.navigation;
                     // navigate('Login');
                     this.resetRouter();
                     // this.dispatchRouter();
-                    alert(" this.props.router2: " + JSON.stringify(this.props.navigation));
                 }
                 // alert("ShopCart show: " + value)
             })

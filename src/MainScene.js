@@ -23,6 +23,7 @@ import OrderDetailView from './scene/order/OrderDetailView'
 import ShopCarScene from './scene/car/ShopCarScene'
 import NearbyScene from './scene/nearby/NearbyScene'
 import MineScene from './scene/mine/MineScene'
+import MineTest from './scene/mine/MineTest'
 import LoginScene from './scene/login/LoginScene'
 import SettingsScene from './scene/setting/SettingsScene'
 
@@ -128,9 +129,11 @@ const Tab = TabNavigator(
         },
 
         Mine: {
-            screen: MineScene,
+            screen: MineTest,
             navigationOptions: ({ navigation }) => ({
+                //顶部页面的标题
                 title:"我的",
+                //底部标签页按钮的title
                 tabBarLabel: '我的',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <TabBarItem
