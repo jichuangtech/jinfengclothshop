@@ -1,5 +1,4 @@
 ios/
-android/
 android/*.iml
 android/.idea
 android/.*.swp
