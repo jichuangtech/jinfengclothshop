@@ -3,7 +3,7 @@
     为什么说是剩余空间呢？因为父布局中的某些布局可以没有设置flex:x属性，则该子布局是按照默认的大小，然后父布局减去其大小后
     才把剩余的大小给有设置flex:x属性的子布局们进行评分；
 
-2.关于组件的生命周期详细介绍
+2.关于 React 组件的生命周期详细介绍
 （1）参考 CarInfoView 组件
 
 3.关于ES6语言的 成员变量，属性的定规方式
@@ -22,3 +22,7 @@
    react-native bundle --platform android --dev false --reset-cache --entry-file index.android.js --bundle-output ~/Downloads/index.android.bundle   --assets-dest ~/Downloads/
 
 （2）增量热更新, 图片资源 和 脚本的热更新
+
+7.React Native中的组件的样式只能使用 style,而 react中可以使用 className 和 style 属性;
+    style的属性key值 使用驼峰式
+    className属性 使用 中间斜杠
