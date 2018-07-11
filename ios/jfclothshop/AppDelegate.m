@@ -22,11 +22,11 @@
 //  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.102:8081/index.ios.bundle"];
   
   //水印长天 宿舍 wifi热点
-  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.135:8081/index.ios.bundle"];
+//  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.135:8081/index.ios.bundle"];
   
   //手机热点
-  jsCodeLocation = [NSURL URLWithString:@"http://172.20.10.3:8081/index.ios.bundle"];
-  
+  jsCodeLocation = [
+                    NSURL URLWithString:@"http://172.20.10.4:8081/index.ios.bundle?platform=ios&dev=true"];
   //手机USB热点
 //  jsCodeLocation = [NSURL URLWithString:@"http://172.20.10.2:8081/index.ios.bundle"];
   
@@ -42,13 +42,14 @@
   //默认
 //  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
+
+  
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"jfclothshop"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
-  
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
+  
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
@@ -56,5 +57,4 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
-
 @end

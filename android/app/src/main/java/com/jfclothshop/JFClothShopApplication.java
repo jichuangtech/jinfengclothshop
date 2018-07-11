@@ -79,7 +79,6 @@ public class JFClothShopApplication extends Application implements ReactApplicat
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
         mWorker = new Worker("JFClothShop_Worker");
-
         mBundleParentPath = getFilesDir() + "/jfClothShopBundle";
         mBundlePath = mBundleParentPath + File.separator + mBundleName;
         mBundleFile = new File(mBundlePath);
