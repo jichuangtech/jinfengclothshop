@@ -2,28 +2,27 @@
  * Created by Bingo on 2017/9/13.
  */
 
-import React, {Component} from 'react';
+import React from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
     View,
     AsyncStorage,
     Image,
-    TouchableOpacity,
     TouchableHighlight,
     AppState,
-    Linking
+    Linking,
 } from 'react-native';
-import {connect} from "react-redux"
+
 import {NetUtils, Urls, RespUtils, ReduxProps, DisplayUtils} from "../../utils";
-import {Button, Switch, InputItem, List, Toast} from 'antd-mobile';
+import {Button, Switch, InputItem, List, Toast} from 'antd-mobile-rn';
 import {LoginType} from "../../constant"
 import SizeStyle from "../../utils/SizeStyle";
 import Align from "../../css/Align";
 import {SpacingView, OrderStatusItemView} from "../../widget"
 import {screen} from "../../common"
 import {OrderStatus} from "../../constant";
+import { connect } from 'dva/mobile';
 
 const TOAST_DURATION = 1.2
 
@@ -34,7 +33,6 @@ class MineScene extends React.Component {
     }
 
     componentWillMount() {
-
     }
 
     componentDidMount() {
@@ -63,12 +61,13 @@ class MineScene extends React.Component {
         let borderRadius = screen.width * 0.17 / 2; //设置成宽度，或者高度的一半 1/2 就够了
 
         let orderStatusImgStyle = SizeStyle.percentW(0.073)
+
         return (
             <View style={MineStyle.container}>
                 <Button
                     onClick={() => this.onLogoutClick()}
-                    style={[MineStyle.btnStyle, btnVisible]}
-                >{title}
+                    style={[MineStyle.btnStyle, btnVisible]}>
+                    {title}
                 </Button>
 
                 <View style={[infoViewVisible, MineStyle.infoViewStyle, {width:"100%"}]}>
@@ -160,6 +159,7 @@ class MineScene extends React.Component {
 
             </View>
         );
+        // return (<View><Text>我是你</Text></View>);
     }
 
     showSettingView() {
@@ -185,7 +185,7 @@ class MineScene extends React.Component {
     }
 
     isLogin() {
-        return this.props.loginProps.status === "in"
+        return this.props.login.status === "in"
     }
 
     onLogoutClick() {
@@ -291,4 +291,4 @@ const MineStyle = StyleSheet.create({
 
 });
 
-export default connect(ReduxProps.mapStateToProps)(MineScene);
+export default connect( ({login}) => ({login}) )(MineScene);

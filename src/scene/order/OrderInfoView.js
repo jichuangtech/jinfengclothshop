@@ -10,7 +10,7 @@ import {Divider} from "../../widget";
 import {OrderStatus} from "../../constant"
 import OrderGoodsList from "./OrderGoodsList"
 import {DisplayUtils} from "../../utils"
-import {Toast} from "antd-mobile"
+import {Toast} from "antd-mobile-rn"
 
 class OrderInfoView extends Component {
 

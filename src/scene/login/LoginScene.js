@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import {connect} from "react-redux"
-import {Button, Switch, InputItem, List, Toast} from 'antd-mobile';
+import {Button, Switch, InputItem, List, Toast} from 'antd-mobile-rn';
 import * as LoginType from '../../constant/loginType';
 import {NetUtils, Urls, RespUtils, ReduxProps, StringUtils} from "../../utils";
 

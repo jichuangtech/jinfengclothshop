@@ -23,13 +23,8 @@ import OrderDetailView from './scene/order/OrderDetailView'
 import ShopCarScene from './scene/car/ShopCarScene'
 import NearbyScene from './scene/nearby/NearbyScene'
 import MineScene from './scene/mine/MineScene'
-import MineTest from './scene/mine/MineTest'
 import LoginScene from './scene/login/LoginScene'
 import SettingsScene from './scene/setting/SettingsScene'
-
-
-//import WebScene from './widget/WebScene'
-//import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 
 const lightContentScenes = []
 // const lightContentScenes = ['Home', 'Mine']
@@ -65,16 +60,12 @@ class RootScene extends Component {
                         // alert(" currentState: " + JSON.stringify(currentState))
                         // alert(" currentScreen: " + currentScreen)
                         // alert(" prevScreen: " + prevScreen)
-                    DeviceEventEmitter.emit("onTabShow", currentScreen)
                     DeviceEventEmitter.emit("onTabHidden", prevScreen)
+                    DeviceEventEmitter.emit("onTabShow", currentScreen)
                 }}
 
             />
         );
-    }
-
-    static notifyNavigationChange(prevScreen, currentScreen) {
-
     }
 }
 
@@ -129,7 +120,7 @@ const Tab = TabNavigator(
         },
 
         Mine: {
-            screen: MineTest,
+            screen: MineScene,
             navigationOptions: ({ navigation }) => ({
                 //顶部页面的标题
                 title:"我的",

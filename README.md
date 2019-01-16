@@ -26,3 +26,21 @@
 7.React Native中的组件的样式只能使用 style,而 react中可以使用 className 和 style 属性;
     style的属性key值 使用驼峰式
     className属性 使用 中间斜杠
+
+8. dva 使用注意
+
+9.关于packages.json中版本范围的概念
+~ 1.1.x
+^ 3.x.x
+
+10. react-native对应的组建是
+官网：https://rn.mobile.ant.design/index-cn
+教程GitHub   https://github.com/ant-design/antd-mobile-samples/tree/master/react-native
+
+在此声明下，因为种种原因本项目在 2018年2月开始 至 2019年1月之间没进行了更新。
+但今天最近2019.1.2进行重新编写项目的时候，发现 antd-mobile 外部库中的一些控件无法引用后。
+经过一系列的排查是由于 蚂蚁金服 将当初适用于移动端RN的库"antd-mobile"修改为"antd-mobile-rn"，
+这些修改的原因应该是 蚂蚁金服 还想将库用在除了RN之外的其他移动端语言上。
+因此目前RN移动端的官网=https://rn.mobile.ant.design/index-cn
+参考代码=https://github.com/ant-design/antd-mobile-samples/tree/master/react-native
+    

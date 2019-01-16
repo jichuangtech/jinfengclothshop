@@ -10,7 +10,7 @@ import {Urls, NetUtils, DisplayUtils}from "../../utils"
 import {Align} from "../../css"
 import {SpacingView} from "../../widget"
 import OrderInfoView from "./OrderInfoView"
-import {Toast} from "antd-mobile"
+import {Toast} from "antd-mobile-rn"
 import OrderGoodsList from "./OrderGoodsList"
 import {OrderStatus} from "../../constant"
 

@@ -14,7 +14,7 @@ import {
     DeviceEventEmitter,
     PixelRatio
 } from 'react-native';
-import {Checkbox} from 'antd-mobile'
+import {Checkbox} from 'antd-mobile-rn'
 import {Align} from '../../css';
 import {CarInfoView, Divider} from "../../widget";
 import {Urls, NetUtils, ReduxProps, RespUtils} from "../../utils"
@@ -36,6 +36,7 @@ class ShopCarScene extends React.Component {
     }
 
     render() {
+        alert(" props: " + JSON.stringify(this.props.login));
         let sum = 1
         let isAllSelect = this.state.isAllSelect
         let editTitle = this.state.isEditMode ? "完成" : "编辑"
@@ -219,11 +220,11 @@ class ShopCarScene extends React.Component {
     }
 
     isLogin() {
-        return this.props.loginProps.status === "in"
+        return this.props.login.status === "in"
     }
 
     componentWillMount() {
-        if (this.props.loginProps.status !== "in") {
+        if (!this.isLogin()) {
             const {navigate} = this.props.navigation;
             // alert("navigation: " + JSON.stringify(this.props.navigation))
             // navigate('Login');
@@ -242,4 +243,4 @@ const CarStyle = StyleSheet.create({
 
 });
 
-export default connect(ReduxProps.mapStateToProps)(ShopCarScene);
+export default connect((login) => ({login}))(ShopCarScene);

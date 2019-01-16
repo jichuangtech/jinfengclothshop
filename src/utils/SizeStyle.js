@@ -4,7 +4,7 @@ const DEF_WIDTH_PERCENT = 0.3;
 const DEF_HEIGHT_PERCENT = 0.3;
 
 /**
- * 返回的是json对象，其实时尚Style样式对象
+ * 返回的是json对象，其实上是Style样式对象
  * @param wPercent 0.0 ～ 1.0
  * @param hPercent 0.0 ～ 1.0
  */

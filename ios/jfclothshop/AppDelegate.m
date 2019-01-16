@@ -18,26 +18,23 @@
 {
   NSURL *jsCodeLocation;
 
+  //金峰旧家 热点
+//  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.7:8081/index.ios.bundle?platform=ios&dev=true"];
+  
   //棕榈泉 热点
-  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.111:8081/index.ios.bundle"];
+//  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.112:8081/index.ios.bundle?platform=ios&dev=true"];
   
   //蔚蓝国际 主卧热点
-//  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.102:8081/index.ios.bundle"];
+//  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.102:8081/index.ios.bundle?platform=ios&dev=true"];
   
   //水印长天 宿舍 wifi热点
-//  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.135:8081/index.ios.bundle?platform=ios&dev=true"];
+  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.118:8081/index.ios.bundle?platform=ios&dev=true"];
   
   //手机热点
 //  jsCodeLocation = [
 //                    NSURL URLWithString:@"http://172.20.10.4:8081/index.ios.bundle?platform=ios&dev=true"];
   //手机USB热点
-//  jsCodeLocation = [NSURL URLWithString:@"http://172.20.10.2:8081/index.ios.bundle"];
-  
-  //电脑的热点 Bingo_Mac_Wifi
-//  jsCodeLocation = [NSURL URLWithString:@"http://169.254.204.97:8081/index.ios.bundle"];
-  
-  //宿舍宽带
-// jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.106:8081/index.ios.bundle"];
+//  jsCodeLocation = [NSURL URLWithString:@"http://172.20.10.3:8081/index.ios.bundle?platform=ios&dev=true"];
   
   //离线打包
 //  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"index.ios" withExtension:@"jsbundle"];

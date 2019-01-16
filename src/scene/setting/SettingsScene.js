@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import {connect} from "react-redux"
 import {NetUtils, Urls, RespUtils, ReduxProps, DisplayUtils} from "../../utils";
-import {Button, Switch, InputItem, List, Toast, Modal} from 'antd-mobile';
+import {Button, Switch, InputItem, List, Toast, Modal} from 'antd-mobile-rn';
 import {LoginType} from "../../constant"
 import SizeStyle from "../../utils/SizeStyle";
 import Align from "../../css/Align";

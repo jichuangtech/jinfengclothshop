@@ -13,7 +13,7 @@ import React from 'react';
 import dva, {connect} from 'dva/mobile';
 import {browserHistory, hashHistory} from 'dva/router';
 import createLogger from 'redux-logger';
-
+import models from './src/models/index';
 
 function delay(timeout) {
     return new Promise(resolve => {
@@ -25,32 +25,15 @@ const app = dva({
     history: browserHistory,
     onAction: createLogger(),
 });
-app.model({
-    namespace: 'count',
-    state: {
-        num: 0
-    },
-    reducers: {
-        add(state) {
-            return {
-                ...state,
-                num: state.num + 1
-            }
-        },
-    },
-    effects: {
-        * addDelay(action, {call, put}) {
-            yield call(delay, 1000);
-            yield put({type: 'add'});
-        },
-    },
-    subscriptions: {
-        setup({dispatch}) {
-            // dispatch({type: 'add'});
-        },
 
-    },
-});
+/**
+ * 进行 dva 模块的注册
+ */
+app.model(require('./src/models/login').default);
+
+// models.forEach((m) => {
+//   app.model(m.default);
+// });
 
 app.router(() => <Shop/>);
 

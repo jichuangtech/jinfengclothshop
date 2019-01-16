@@ -11,7 +11,7 @@ import {
     CheckBox
 } from 'react-native';
 
-import {Checkbox} from 'antd-mobile'
+import {Checkbox} from 'antd-mobile-rn'
 import {Align} from "../css";
 import {DisplayUtils ,Urls, SizeStyle} from "../utils";
 import {Divider} from "../widget"
