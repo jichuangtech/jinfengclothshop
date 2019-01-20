@@ -40,7 +40,12 @@
 在此声明下，因为种种原因本项目在 2018年2月开始 至 2019年1月之间没进行了更新。
 但今天最近2019.1.2进行重新编写项目的时候，发现 antd-mobile 外部库中的一些控件无法引用后。
 经过一系列的排查是由于 蚂蚁金服 将当初适用于移动端RN的库"antd-mobile"修改为"antd-mobile-rn"，
+这次修改再2.2.0版本体现；
 这些修改的原因应该是 蚂蚁金服 还想将库用在除了RN之外的其他移动端语言上。
+后续在3.0.0版本上又将包名字修改为 "@ant-design/react-native"。
+由于2.2.0版本的功能适合当前业务的开发，因此本提交点还是以2.2.0来开发；
+
+
 因此目前RN移动端的官网=https://rn.mobile.ant.design/index-cn
 参考代码=https://github.com/ant-design/antd-mobile-samples/tree/master/react-native
     
